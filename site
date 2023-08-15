@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title> Shop Website</title>
+<style type="text/css">
+    
+h1{
+    margin-left: 30rem;
+}
+    
+
+</style>
+</head>
+<body>
+
+    <h1>Coffee Shop</h1>
+    
+<h2>Menu:</h2>
+
+<p>
+  1) Hot Coffee - Rs. 50 <br>
+  2) Cold Coffee - Rs. 100 <br>
+  3) Hot Chocolate - Rs. 150 <br>
+  4) Cold Chocolate - Rs. 200
+</p>
+
+<label for="item">Select an item:</label>
+<select id="item">
+  <option value="50">Hot Coffee</option>
+  <option value="100">Cold Coffee</option>
+  <option value="150">Hot Chocolate</option>
+  <option value="200">Cold Chocolate</option>
+</select>
+
+<br>
+<br>
+    
+<label for="quantity">Enter Quantity:</label>
+<input type="number" id="quantity" value="1">
+
+<button onclick="calculateTotal()">Calculate Total</button>
+
+<div id="bill"></div>
+
+<script>
+function calculateTotal() {
+  const itemSelect = document.getElementById("item");
+  const quantityInput = document.getElementById("quantity");
+  const billDiv = document.getElementById("bill");
+
+  const itemPrice = parseFloat(itemSelect.value);
+  const quantity = parseInt(quantityInput.value);
+  const total = itemPrice * quantity;
+
+  billDiv.innerHTML = `
+    <h2>Bill</h2>
+    <p>Item: ${itemSelect.options[itemSelect.selectedIndex].text}</p>
+    <p>Price: Rs. ${itemPrice}</p>
+    <p>Quantity: ${quantity}</p>
+    <p>Total: Rs. ${total}</p>
+    <p>Amount Payable: Rs. ${total}</p>
+  `;
+}
+</script>
+
+</body>
+</html>
